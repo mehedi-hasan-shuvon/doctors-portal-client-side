@@ -8,7 +8,7 @@ import Login from './Pages/Login/Login';
 function App() {
   return (
     <div>
-      {/* <button class="btn btn-primary">Button</button> */}
+      {/* <button className="btn btn-primary">Button</button> */}
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
