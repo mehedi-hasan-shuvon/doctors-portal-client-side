@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Service = ({ service, setTreatment }) => {
     const { name, slots } = service;
     return (
