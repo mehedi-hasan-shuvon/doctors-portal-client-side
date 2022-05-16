@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
@@ -17,6 +17,9 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
 
 
+
+
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -26,16 +29,19 @@ const Login = () => {
 
 
 
-    if (user || gUser) {
-        console.log(user || gUser);
-        navigate(from, { replace: true });
-    }
-
 
     const onSubmit = data => {
         console.log(data);
         signInWithEmailAndPassword(data.email, data.password);
     }
+
+    //for preventing browser errors
+    useEffect(() => {
+        if (user || gUser) {
+            // console.log(user || gUser);
+            navigate(from, { replace: true });
+        }
+    }, [user, gUser, from, navigate]);
 
     if (loading || gLoading) {
         return <Loading></Loading>
@@ -59,14 +65,14 @@ const Login = () => {
 
 
                         {/* email field */}
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Email</span>
-                                {/* <span class="label-text-alt">Alt label</span> */}
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                                {/* <span className="label-text-alt">Alt label</span> */}
                             </label>
                             <input
                                 type="email" placeholder="Your email"
-                                class="input input-bordered w-full max-w-xs"
+                                className="input input-bordered w-full max-w-xs"
                                 {...register("email",
                                     {
                                         required: {
@@ -79,25 +85,25 @@ const Login = () => {
                                         }
                                     })}
                             />
-                            <label class="label">
+                            <label className="label">
 
-                                {errors.email?.type === 'required' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {/* <span class="label-text-alt">Alt label</span> */}
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {/* <span className="label-text-alt">Alt label</span> */}
                             </label>
                         </div>
 
 
                         {/* password field  */}
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Password</span>
-                                {/* <span class="label-text-alt">Alt label</span> */}
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                                {/* <span className="label-text-alt">Alt label</span> */}
                             </label>
                             <input
                                 type="password"
                                 placeholder="Password"
-                                class="input input-bordered w-full max-w-xs"
+                                className="input input-bordered w-full max-w-xs"
                                 {...register("password",
                                     {
                                         required: {
@@ -110,11 +116,11 @@ const Login = () => {
                                         }
                                     })}
                             />
-                            <label class="label">
+                            <label className="label">
 
-                                {errors.password?.type === 'required' && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
-                                {errors.password?.type === 'minLength' && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
-                                {/* <span class="label-text-alt">Alt label</span> */}
+                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                {/* <span className="label-text-alt">Alt label</span> */}
                             </label>
                         </div>
 

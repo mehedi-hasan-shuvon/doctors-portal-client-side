@@ -65,14 +65,14 @@ const SignUp = () => {
 
 
                         {/* name field  */}
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Name</span>
-                                {/* <span class="label-text-alt">Alt label</span> */}
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                                {/* <span className="label-text-alt">Alt label</span> */}
                             </label>
                             <input
                                 type="text" placeholder="Your Name"
-                                class="input input-bordered w-full max-w-xs"
+                                className="input input-bordered w-full max-w-xs"
                                 {...register("name",
                                     {
                                         required: {
@@ -81,25 +81,25 @@ const SignUp = () => {
                                         }
                                     })}
                             />
-                            <label class="label">
+                            <label className="label">
 
-                                {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                                {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
 
-                                {/* <span class="label-text-alt">Alt label</span> */}
+                                {/* <span className="label-text-alt">Alt label</span> */}
                             </label>
                         </div>
 
 
 
                         {/* email field */}
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Email</span>
-                                {/* <span class="label-text-alt">Alt label</span> */}
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                                {/* <span className="label-text-alt">Alt label</span> */}
                             </label>
                             <input
                                 type="email" placeholder="Your email"
-                                class="input input-bordered w-full max-w-xs"
+                                className="input input-bordered w-full max-w-xs"
                                 {...register("email",
                                     {
                                         required: {
@@ -112,25 +112,25 @@ const SignUp = () => {
                                         }
                                     })}
                             />
-                            <label class="label">
+                            <label className="label">
 
-                                {errors.email?.type === 'required' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {/* <span class="label-text-alt">Alt label</span> */}
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {/* <span className="label-text-alt">Alt label</span> */}
                             </label>
                         </div>
 
 
                         {/* password field  */}
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Password</span>
-                                {/* <span class="label-text-alt">Alt label</span> */}
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                                {/* <span className="label-text-alt">Alt label</span> */}
                             </label>
                             <input
                                 type="password"
                                 placeholder="Password"
-                                class="input input-bordered w-full max-w-xs"
+                                className="input input-bordered w-full max-w-xs"
                                 {...register("password",
                                     {
                                         required: {
@@ -143,11 +143,11 @@ const SignUp = () => {
                                         }
                                     })}
                             />
-                            <label class="label">
+                            <label className="label">
 
-                                {errors.password?.type === 'required' && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
-                                {errors.password?.type === 'minLength' && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
-                                {/* <span class="label-text-alt">Alt label</span> */}
+                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                {/* <span className="label-text-alt">Alt label</span> */}
                             </label>
                         </div>
 
