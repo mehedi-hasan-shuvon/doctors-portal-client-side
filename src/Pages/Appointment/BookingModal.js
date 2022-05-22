@@ -28,7 +28,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
 
         // console.log(booking);
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://obscure-beyond-45774.herokuapp.com/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

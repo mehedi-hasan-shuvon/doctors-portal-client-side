@@ -14,7 +14,7 @@ const AvailableAppointments = ({ date }) => {
 
     //using react query
     const { data: services, isLoading, refetch } = useQuery(['available', formatedDate], () =>
-        fetch(`http://localhost:5000/available?date=${formatedDate}`)
+        fetch(`https://obscure-beyond-45774.herokuapp.com/available?date=${formatedDate}`)
             .then(res => res.json())
     )
 
@@ -22,7 +22,7 @@ const AvailableAppointments = ({ date }) => {
         return <Loading></Loading>
     }
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/available?date=${formatedDate}`)
+    //     fetch(`https://obscure-beyond-45774.herokuapp.com/available?date=${formatedDate}`)
     //         .then(res => res.json())
     //         .then(data => setServices(data));
     // }, [formatedDate]);
